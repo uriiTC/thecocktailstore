@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compra - TheCocktailStore</title>
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="header"></header>
+
+    <main class="main">
+      <section class="cart-page container">
+        <h1 class="page-title">Tu Carrito de Compra</h1>
+
+        <div class="cart-container">
+          <div class="cart-items">
+            <div class="cart-empty" style="display: none">
+              <p>Tu carrito está vacío</p>
+              <a href="/" class="button">Continuar Comprando</a>
+            </div>
+          </div>
+
+          <div class="cart-sidebar">
+            <div class="cart-summary">
+              <h3>Resumen del Pedido</h3>
+
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span class="cart-subtotal">$0.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Envío</span>
+                <span>Calculado en el checkout</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Impuestos</span>
+                <span>Calculado en el checkout</span>
+              </div>
+
+              <div class="summary-row total">
+                <span>Total Estimado</span>
+                <span class="cart-total">$0.00</span>
+              </div>
+
+              <a
+                href="checkout.html"
+                class="button button--primary checkout-button"
+              >
+                Proceder al Checkout
+              </a>
+
+              <a href="/" class="continue-shopping"> Continuar Comprando </a>
+            </div>
+
+            <div class="coupon-section">
+              <h3>Cupón de Descuento</h3>
+              <div class="coupon-form">
+                <input type="text" placeholder="Código de cupón" />
+                <button class="button apply-coupon">Aplicar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"></footer>
+
+    <script src="js/cartPage.js" type="module"></script>
+  </body>
+</html>
