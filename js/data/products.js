@@ -5,7 +5,7 @@ export const products = [
     price: 2499.99,
     description:
       "Portátil gaming definitivo con refrigeración cuántica y teclado neuroadaptativo",
-    image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500",
+    image: "images/NovaTechPhantomX9.png",
     category: "laptops",
     stock: 10,
     specs: {
@@ -22,7 +22,7 @@ export const products = [
     price: 1699.99,
     description:
       "Ultraligero con autonomía de 30 horas y pantalla holográfica desplegable",
-    image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500",
+    image: "images/VortexBookPro.png",
     category: "laptops",
     stock: 8,
     specs: {
@@ -39,7 +39,7 @@ export const products = [
     price: 1199.99,
     description:
       "Smartphone con cámara orbital y batería de grafeno con carga instantánea",
-    image: "https://images.unsplash.com/photo-1678685888425-d776440bdc2a?w=500",
+    image: "images/NebulaZ1Ultra.png",
     category: "smartphones",
     stock: 15,
     specs: {
@@ -56,7 +56,7 @@ export const products = [
     price: 999.99,
     description:
       "Teléfono con pantalla extensible y sistema de proyección holográfica",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500",
+    image: "images/PulsePhoneInfinity.png",
     category: "smartphones",
     stock: 12,
     specs: {
@@ -73,7 +73,7 @@ export const products = [
     price: 2299.99,
     description:
       "Portátil gaming con sistema de refrigeración criogénica y teclado mecánico personalizable",
-    image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500",
+    image: "images/ShadowBladeElite.png",
     category: "laptops",
     stock: 6,
     specs: {
@@ -90,7 +90,7 @@ export const products = [
     price: 899.99,
     description:
       "Monitor curvo panorámico con tecnología de inmersión sensorial y audio espacial",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500",
+    image: "images/InfinityViewUltraWide.png",
     category: "accessories",
     stock: 5,
     specs: {
@@ -107,7 +107,7 @@ export const products = [
     price: 229.99,
     description:
       "Teclado con retroalimentación háptica avanzada y teclas con memoria de usuario",
-    image: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=500",
+    image: "images/NeuroBladeTactile.png",
     category: "accessories",
     stock: 15,
     specs: {
@@ -123,7 +123,7 @@ export const products = [
     price: 699.99,
     description:
       "Smartphone plegable con tres pantallas y sistema de proyección láser",
-    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500",
+    image: "images/QuantumFold.png",
     category: "smartphones",
     stock: 10,
     specs: {
@@ -140,7 +140,7 @@ export const products = [
     price: 799.99,
     description:
       "Monitor gaming con tecnología de seguimiento ocular y ajuste automático de brillo",
-    image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500",
+    image: "images/VisionProGamingDisplay.png",
     category: "accessories",
     stock: 7,
     specs: {
@@ -157,7 +157,7 @@ export const products = [
     price: 3499.99,
     description:
       "Estación de trabajo portátil con doble GPU y sistema de refrigeración por nitrógeno líquido",
-    image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500",
+    image: "images/TitanBookUltimate.png",
     category: "laptops",
     stock: 4,
     specs: {
