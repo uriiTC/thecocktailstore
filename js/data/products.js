@@ -168,4 +168,39 @@ export const products = [
       screen: "18 pulgadas MicroLED 480Hz",
     },
   },
+  {
+    id: 11,
+    name: "SonicWave Pro Headset",
+    price: 349.99,
+    description:
+      "Auriculares con cancelación de ruido neuroadaptativa y audio espacial personalizado según la forma de tu oído",
+    image: "images/SonicWaveProHeadset.png",
+    category: "accessories",
+    stock: 9,
+    specs: {
+      driver: "Transductores de grafeno de 50mm",
+      connectivity: "Bluetooth 7.0 / WiFi Direct / USB-C",
+      battery: "60 horas con carga rápida magnética",
+      features: "Reconocimiento de voz, EQ adaptativo, Sensores biométricos",
+      microphone: "Array de 4 micrófonos con IA de eliminación de ruido",
+    },
+  },
+  {
+    id: 12,
+    name: "HoloDesk Studio",
+    price: 1899.99,
+    description:
+      "Estación de trabajo con proyección holográfica 3D y superficie táctil de alta precisión para diseñadores y creadores de contenido",
+    image: "images/HoloDeskStudio.png",
+    category: "accessories",
+    stock: 3,
+    specs: {
+      projection: "Holográfica volumétrica 32x24 pulgadas",
+      resolution: "16K efectivos en espacio tridimensional",
+      input: "Táctil de 20 puntos con sensibilidad a presión",
+      connectivity: "Thunderbolt 5, WiFi 7, HDMI 3.0",
+      features:
+        "Reconocimiento gestual 3D, Calibración automática, Soporte para lápiz óptico",
+    },
+  },
 ];
