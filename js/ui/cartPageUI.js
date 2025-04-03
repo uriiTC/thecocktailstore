@@ -10,6 +10,8 @@ export class CartPageUI {
 
     this.setupEventListeners();
 
+    this.updateCartUI(cartService.getItems());
+
     cartService.subscribe(this.updateCartUI.bind(this));
   }
 
@@ -52,32 +54,34 @@ export class CartPageUI {
       this.cartEmpty.style.display = "block";
       this.cartItems.innerHTML = "";
       this.checkoutButton.disabled = true;
+      this.checkoutButton.classList.add("disabled");
     } else {
       this.cartEmpty.style.display = "none";
       this.checkoutButton.disabled = false;
+      this.checkoutButton.classList.remove("disabled");
 
       this.cartItems.innerHTML = cart
         .map(
           (item) => `
-            <div class="cart-item" data-id="${item.id}">
-                <div class="item-image">
-                    <img src="${item.image}" alt="${item.name}">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-name">${item.name}</h3>
-                    <p class="item-price">$${item.price.toFixed(2)}</p>
-                </div>
-                <div class="item-quantity">
-                    <button class="quantity-btn" data-action="decrease">-</button>
-                    <span>${item.quantity}</span>
-                    <button class="quantity-btn" data-action="increase">+</button>
-                </div>
-                <div class="item-total">
-                    $${(item.price * item.quantity).toFixed(2)}
-                </div>
-                <button class="remove-btn">&times;</button>
+        <div class="cart-item" data-id="${item.id}">
+            <div class="item-image">
+                <img src="${item.image}" alt="${item.name}">
             </div>
-        `
+            <div class="item-details">
+                <h3 class="item-name">${item.name}</h3>
+                <p class="item-price">$${item.price.toFixed(2)}</p>
+            </div>
+            <div class="item-quantity">
+                <button class="quantity-btn" data-action="decrease">-</button>
+                <span>${item.quantity}</span>
+                <button class="quantity-btn" data-action="increase">+</button>
+            </div>
+            <div class="item-total">
+                $${(item.price * item.quantity).toFixed(2)}
+            </div>
+            <button class="remove-btn">&times;</button>
+        </div>
+    `
         )
         .join("");
     }

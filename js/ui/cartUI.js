@@ -70,22 +70,22 @@ export class CartUI {
     this.cartItems.innerHTML = cart
       .map(
         (item) => `
-            <div class="cart-item" data-id="${item.id}">
-                <img src="${item.image}" alt="${
+          <div class="cart-item" data-id="${item.id}">
+              <img src="${item.image}" alt="${
           item.name
         }" class="cart-item__image">
-                <div class="cart-item__details">
-                    <h4 class="cart-item__name">${item.name}</h4>
-                    <p class="cart-item__price">$${item.price.toFixed(2)}</p>
-                    <div class="cart-item__quantity">
-                        <button class="quantity-btn" data-action="decrease">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="quantity-btn" data-action="increase">+</button>
-                    </div>
-                </div>
-                <button class="remove-btn">&times;</button>
-            </div>
-        `
+              <div class="cart-item__details">
+                  <h4 class="cart-item__name">${item.name}</h4>
+                  <p class="cart-item__price">$${item.price.toFixed(2)}</p>
+                  <div class="cart-item__quantity">
+                      <button class="quantity-btn" data-action="decrease">-</button>
+                      <span>${item.quantity}</span>
+                      <button class="quantity-btn" data-action="increase">+</button>
+                  </div>
+              </div>
+              <button class="remove-btn">&times;</button>
+          </div>
+      `
       )
       .join("");
 
@@ -95,76 +95,78 @@ export class CartUI {
       const styles = document.createElement("style");
       styles.id = "cartStyles";
       styles.textContent = `
-                .cart-item {
-                    display: flex;
-                    align-items: center;
-                    padding: 1rem;
-                    border-bottom: 1px solid var(--border-color);
-                    position: relative;
-                }
+              .cart-item {
+                  display: flex;
+                  align-items: center;
+                  padding: 1rem;
+                  border-bottom: 1px solid var(--border-color);
+                  position: relative;
+              }
 
-                .cart-item__image {
-                    width: 60px;
-                    height: 60px;
-                    object-fit: cover;
-                    border-radius: 0.5rem;
-                    margin-right: 1rem;
-                }
+              .cart-item__image {
+                  width: 60px;
+                  height: 60px;
+                  object-fit: cover;
+                  border-radius: 0.5rem;
+                  margin-right: 1rem;
+              }
 
-                .cart-item__details {
-                    flex: 1;
-                }
+              .cart-item__details {
+                  flex: 1;
+              }
 
-                .cart-item__name {
-                    font-size: var(--normal-font-size);
-                    margin-bottom: 0.25rem;
-                }
+              .cart-item__name {
+                  font-size: var(--normal-font-size);
+                  margin-bottom: 0.25rem;
+              }
 
-                .cart-item__price {
-                    color: var(--primary-color);
-                    font-weight: 600;
-                    margin-bottom: 0.5rem;
-                }
+              .cart-item__price {
+                  color: var(--primary-color);
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+              }
 
-                .cart-item__quantity {
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                }
+              .cart-item__quantity {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+              }
 
-                .quantity-btn {
-                    width: 24px;
-                    height: 24px;
-                    border-radius: 50%;
-                    background-color: var(--bg-color-alt);
-                    color: var(--text-color);
-                    font-size: 1rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    transition: .3s;
-                }
+              .quantity-btn {
+                  width: 24px;
+                  height: 24px;
+                  border-radius: 50%;
+                  background-color: var(--bg-color-alt);
+                  color: var(--text-color);
+                  font-size: 1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: .3s;
+              }
 
-                .quantity-btn:hover {
-                    background-color: var(--primary-color);
-                    color: var(--bg-color);
-                }
+              .quantity-btn:hover {
+                  background-color: var(--primary-color);
+                  color: var(--bg-color);
+              }
 
-                .remove-btn {
-                    position: absolute;
-                    top: 0.5rem;
-                    right: 0.5rem;
-                    font-size: 1.25rem;
-                    color: var(--text-color-light);
-                    cursor: pointer;
-                    transition: .3s;
-                }
+              .remove-btn {
+                  position: absolute;
+                  top: 0.5rem;
+                  right: 0.5rem;
+                  font-size: 1.25rem;
+                  color: var(--text-color-light);
+                  cursor: pointer;
+                  transition: .3s;
+                  background: none;
+                  border: none;
+              }
 
-                .remove-btn:hover {
-                    color: var(--accent-color);
-                }
-            `;
+              .remove-btn:hover {
+                  color: var(--accent-color);
+              }
+          `;
       document.head.appendChild(styles);
     }
   }
