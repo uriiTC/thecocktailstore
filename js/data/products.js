@@ -203,4 +203,151 @@ export const products = [
         "Reconocimiento gestual 3D, Calibración automática, Soporte para lápiz óptico",
     },
   },
+  {
+    id: 13,
+    name: "QuantumAir Pro",
+    price: 1299.99,
+    description:
+      "Ultrabook con pantalla transparente y tecnología de refrigeración por levitación magnética",
+    image: "images/QuantumAirPro.png",
+    category: "laptops",
+    stock: 7,
+    specs: {
+      processor: "NanoCore i7-X",
+      ram: "32GB CrystalRAM",
+      storage: "2TB MolecularSSD",
+      gpu: "AetherForce RTX 6050",
+      screen: "14 pulgadas ClearView Transparent OLED",
+    },
+  },
+  {
+    id: 14,
+    name: "NexusVR Elite",
+    price: 899.99,
+    description:
+      "Visor de realidad virtual con seguimiento ocular y sensores hápticos para una inmersión total",
+    image: "images/NexusVRElite.png",
+    category: "accessories",
+    stock: 12,
+    specs: {
+      resolution: "8K por ojo (16K total)",
+      refreshRate: "144Hz",
+      fieldOfView: "210 grados",
+      tracking: "Inside-out 6DoF con 12 cámaras",
+      features:
+        "Sensores hápticos corporales, audio espacial 3D, reconocimiento facial",
+    },
+  },
+  {
+    id: 15,
+    name: "EchoSphere Home",
+    price: 399.99,
+    description:
+      "Asistente domótico holográfico con proyección 3D y control por gestos y voz",
+    image: "images/EchoSphereHome.png",
+    category: "accessories",
+    stock: 20,
+    specs: {
+      processor: "QuantumAI Neural Engine",
+      connectivity: "WiFi 7, Bluetooth 6.0, Zigbee, Matter",
+      projection: "Holográfica 360° con 15 lúmenes",
+      microphones: "Array de 8 micrófonos de largo alcance",
+      features:
+        "Control por gestos, reconocimiento facial, traducción en tiempo real",
+    },
+  },
+  {
+    id: 16,
+    name: "ChromaNote Flex",
+    price: 1499.99,
+    description:
+      "Tablet plegable con pantalla de tinta electrónica a color y lápiz con sensación de papel real",
+    image: "images/ChromaNoteFlex.png",
+    category: "accessories",
+    stock: 9,
+    specs: {
+      screen: "13.3 pulgadas E-Ink Spectrum plegable",
+      processor: "BioCortex A14",
+      ram: "16GB",
+      storage: "512GB expandible",
+      battery: "200 horas de uso continuo",
+      features:
+        "Resistente al agua, lápiz con 4096 niveles de presión, textura de papel",
+    },
+  },
+  {
+    id: 17,
+    name: "PulseDrone Voyager",
+    price: 1799.99,
+    description:
+      "Dron profesional con cámara 12K y sistema de vuelo autónomo con IA predictiva",
+    image: "images/PulseDroneVoyager.png",
+    category: "accessories",
+    stock: 5,
+    specs: {
+      camera: "12K HDR con estabilización cuántica",
+      flightTime: "90 minutos",
+      range: "15 km con transmisión en vivo",
+      speed: "120 km/h en modo deportivo",
+      features:
+        "Seguimiento predictivo, evitación de obstáculos 360°, modo cinematográfico automático",
+    },
+  },
+  {
+    id: 18,
+    name: "OmniPhone Stealth",
+    price: 1299.99,
+    description:
+      "Smartphone con tecnología de camuflaje adaptativo y sistema de seguridad biométrica avanzada",
+    image: "images/OmniPhoneStealth.png",
+    category: "smartphones",
+    stock: 8,
+    specs: {
+      processor: "QuantumEdge X4",
+      ram: "24GB",
+      storage: "1TB con encriptación cuántica",
+      screen: "6.7 pulgadas Adaptive Camo OLED",
+      camera:
+        "QuadFusion 200MP + UltraWide 64MP + Macro 48MP + Telephoto 10x 48MP",
+      security:
+        "Escáner de retina, huella dactilar bajo pantalla, reconocimiento facial 3D",
+    },
+  },
+  {
+    id: 19,
+    name: "SonicSurge Tower",
+    price: 2499.99,
+    description:
+      "Sistema de sonido holofónico con proyección de sonido direccional y materialización de bajos",
+    image: "images/SonicSurgeTower.png",
+    category: "accessories",
+    stock: 4,
+    specs: {
+      power: "2000W RMS",
+      speakers: "Array de 24 altavoces direccionales",
+      subwoofer: 'Dual 15" con tecnología de materialización de bajos',
+      connectivity: "WiFi 7, Bluetooth 6.0, HDMI 3.0, Optical",
+      features:
+        "Calibración espacial automática, zonas de audio independientes, sincronización con iluminación",
+    },
+  },
+  {
+    id: 20,
+    name: "NeuroPad Creator",
+    price: 3299.99,
+    description:
+      "Tableta de dibujo con superficie de textura adaptativa y generación de contenido por IA integrada",
+    image: "images/NeuroPadCreator.png",
+    category: "accessories",
+    stock: 6,
+    specs: {
+      screen: "32 pulgadas 8K HDR Adaptive Texture",
+      processor: "CreativeCore X12 con Neural Engine",
+      ram: "64GB",
+      storage: "4TB NVMe SSD",
+      pen: "HapticBrush Pro con 16384 niveles de presión y feedback táctil",
+      features:
+        "Generación de contenido por IA, simulación de materiales reales, calibración de color profesional",
+    },
+  },
 ];
