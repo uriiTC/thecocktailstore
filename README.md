@@ -87,7 +87,7 @@ GitHub Pages te permite publicar tu sitio web directamente desde tu repositorio:
 2. Ve a "Settings" (Configuración)
 3. En el menú lateral izquierdo, selecciona "Pages"
 4. En "Source", selecciona "Deploy from a branch"
-5. En "Branch", selecciona "main" y "/root" y haz clic en "Save"
+5. En "Branch", selecciona "master" y "/root" y haz clic en "Save"
 6. Espera unos minutos mientras GitHub Pages construye y despliega tu sitio
 7. Una vez completado, verás un mensaje con la URL de tu sitio (normalmente https://[tu-usuario].github.io/TheCocktailStore/)
 
