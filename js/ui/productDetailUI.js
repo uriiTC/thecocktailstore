@@ -14,6 +14,7 @@ export class ProductDetailUI {
     this.quantity = 1;
     this.initElements();
     this.renderProduct();
+    this.pushViewItemEvent();
     this.setupEventListeners();
   }
 
@@ -52,6 +53,26 @@ export class ProductDetailUI {
       ".category-link"
     ).href = `/?category=${this.product.category}`;
     document.querySelector(".product-name").textContent = this.product.name;
+  }
+
+  pushViewItemEvent() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "view_item",
+      ecommerce: {
+        items: [
+          {
+            item_id: this.product.id.toString(),
+            item_brand: "The Cocktail Store",
+            item_name: this.product.name,
+            item_category: this.product.category,
+            price: this.product.price,
+            quantity: 1,
+          },
+        ],
+      },
+    });
+    console.log("Evento view_item enviado para:", this.product.name);
   }
 
   setupEventListeners() {
