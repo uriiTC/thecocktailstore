@@ -118,6 +118,20 @@ export class ProductsUI {
       )
       .join("");
 
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "view_item_list",
+    ecommerce: {
+      items: this.filteredProducts.map((product) => ({
+        item_id: product.id.toString(),
+        item_name: product.name,
+        item_category: product.category,
+        price: product.price,
+        quantity: 1
+      }))
+    }
+  });
+
     if (!document.getElementById("productsStyles")) {
       const styles = document.createElement("style");
       styles.id = "productsStyles";
