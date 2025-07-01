@@ -37,6 +37,15 @@ export class ProductsUI {
           this.handleAddToCart(product);
         }
       }
+      const detailsLink = e.target.closest(".button--secondary");
+      if (detailsLink) {
+        const urlParams = new URL(detailsLink.href).searchParams;
+        const productId = parseInt(urlParams.get("id"));
+        const product = this.products.find((p) => p.id === productId);
+        if (product) {
+          this.handleSelectItem(product);
+        }
+      }
     });
   }
 
@@ -80,6 +89,25 @@ export class ProductsUI {
         button.classList.remove("added");
       }, 1500);
     }
+  }
+
+  handleSelectItem(product) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "select_item",
+      ecommerce: {
+        items: [
+          {
+            item_id: product.id.toString(),
+            item_brand: "The Cocktail Store", // Ajusta si tienes marca dinámica
+            item_name: product.name,
+            item_category: product.category,
+            price: product.price,
+            quantity: 1,
+          },
+        ],
+      },
+    });
   }
 
   renderProducts() {
