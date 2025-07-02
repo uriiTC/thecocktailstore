@@ -78,7 +78,6 @@ export class ProductsUI {
   }
 
   handleAddToCart(product) {
-    console.log("Añadiendo al carrito:", product);
     cartService.addItem(product);
 
     window.dataLayer = window.dataLayer || [];
