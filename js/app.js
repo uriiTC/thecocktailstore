@@ -11,7 +11,15 @@ class App {
     this.productsUI = productsUI;
 
     this.setupMobileMenu();
-    this.setupCartViewEvent();
+
+    // Event delegation para clicks en el carrito
+    document.addEventListener("click", (e) => {
+      if (e.target.closest(".nav__cart")) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "view_cart" });
+        console.log("Evento view_cart enviado desde delegación");
+      }
+    });
   }
 
   setupMobileMenu() {
@@ -78,19 +86,6 @@ class App {
                 }
             `;
       document.head.appendChild(styles);
-    }
-  }
-
-  setupCartViewEvent() {
-    const cartElement = document.querySelector(".nav__cart");
-    if (cartElement) {
-      cartElement.addEventListener("click", () => {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "view_cart",
-        });
-        console.log("Evento view_cart enviado");
-      });
     }
   }
 }
