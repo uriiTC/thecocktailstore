@@ -33,6 +33,11 @@ export class CheckoutUI {
       checkoutService.saveShippingInfo(shippingInfo);
       checkoutService.setShippingMethod(shippingMethod);
 
+      // Evento GTM
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "begin_checkout" });
+      console.log("Evento 'begin_checkout' enviado a dataLayer");
+
       window.location.href = "/payment.html";
     });
   }
