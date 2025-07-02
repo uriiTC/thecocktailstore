@@ -12,9 +12,10 @@ class App {
 
     this.setupMobileMenu();
 
-    // Event delegation para clicks en el carrito
+    // Event delegation para clicks en el carrito con log para debug
     document.addEventListener("click", (e) => {
       if (e.target.closest(".nav__cart")) {
+        console.log("Click detectado en .nav__cart o hijo:", e.target);
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: "view_cart" });
         console.log("Evento view_cart enviado desde delegación");
