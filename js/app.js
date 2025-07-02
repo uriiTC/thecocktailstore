@@ -20,6 +20,14 @@ class App {
         window.dataLayer.push({ event: "view_cart" });
         console.log("Evento view_cart enviado desde delegación");
       }
+
+      // Delegación para eliminar item del carrito
+      if (e.target.closest(".cart-modal") && e.target.closest(".remove-btn")) {
+        console.log("Botón de eliminar clicado:", e.target);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "remove_from_cart" });
+        // Aquí puedes añadir más lógica si quieres manejar la eliminación real del item
+      }
     });
   }
 
