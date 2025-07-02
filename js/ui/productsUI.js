@@ -78,7 +78,25 @@ export class ProductsUI {
   }
 
   handleAddToCart(product) {
+    console.log("Añadiendo al carrito:", product);
     cartService.addItem(product);
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "add_to_cart",
+      ecommerce: {
+        items: [
+          {
+          item_id: product.id.toString(),
+          item_brand: "The Cocktail Store", // Cambia si tienes marca dinámica
+          item_name: product.name,
+          item_category: product.category,
+          price: product.price,
+          quantity: 1,
+          },
+        ],
+      },
+    });
 
     const button = this.productsGrid.querySelector(`[data-id="${product.id}"]`);
     if (button) {
