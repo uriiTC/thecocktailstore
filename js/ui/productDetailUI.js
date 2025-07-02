@@ -111,6 +111,23 @@ export class ProductDetailUI {
       );
       cartService.addItem(this.product, this.quantity);
 
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "add_to_cart",
+        ecommerce: {
+        items: [
+            {
+            item_id: this.product.id.toString(),
+            item_brand: "The Cocktail Store",
+            item_name: this.product.name,
+            item_category: this.product.category,
+            price: this.product.price,
+            quantity: this.quantity,
+            },
+          ],
+        },
+      });  
+
       const originalText = this.addToCartBtn.textContent;
       this.addToCartBtn.textContent = "¡Añadido!";
       this.addToCartBtn.disabled = true;
