@@ -12,19 +12,19 @@ class App {
 
     this.setupMobileMenu();
 
-    // Event delegation para clicks en el carrito con logs para debug
+    // Delegación para clicks
     document.addEventListener("click", (e) => {
-      // Evento view_cart (clic en carrito)
+      // Click en el carrito (para evento view_cart)
       if (e.target.closest(".nav__cart")) {
         console.log("Click detectado en .nav__cart o hijo:", e.target);
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: "view_cart" });
-        console.log("Evento 'view_cart' enviado desde delegación");
+        console.log("Evento view_cart enviado desde delegación");
       }
 
-      // Evento remove_from_cart (clic en botón eliminar)
+      // Click en el botón eliminar item del carrito (remove-btn)
       if (e.target.closest(".remove-btn")) {
-        console.log("Click detectado en botón eliminar (.remove-btn):", e.target);
+        console.log("Click detectado en botón eliminar (.remove-btn) o hijo:", e.target);
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: "remove_from_cart" });
         console.log("Evento 'remove_from_cart' enviado desde delegación");
