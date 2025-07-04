@@ -1,5 +1,6 @@
 import { cartUI } from "./ui/cartUI.js";
 import { productsUI } from "./ui/productsUI.js";
+import { cartService } from "./services/cart.js"; // ✅ importamos cartService
 
 class App {
   constructor() {
@@ -10,24 +11,45 @@ class App {
     this.cartUI = cartUI;
     this.productsUI = productsUI;
 
+    // ✅ Hacemos cartService accesible globalmente
+    window.cartService = cartService;
+
     this.setupMobileMenu();
 
     // Delegación para clicks
     document.addEventListener("click", (e) => {
-      // Click en el carrito (para evento view_cart)
+      // Evento: View Cart
       if (e.target.closest(".nav__cart")) {
         console.log("Click detectado en .nav__cart o hijo:", e.target);
+
+        // ✅ Obtenemos valor total y moneda
+        const value = cartService.getTotal();
+        const currency = "EUR"; // O usa cartService.getCurrency() si lo tienes definido
+
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: "view_cart" });
-        console.log("Evento view_cart enviado desde delegación");
+        window.dataLayer.push({
+          event: "view_cart",
+          ecommerce: {
+            value: value,
+            currency: currency,
+            items: cartService.getItems()
+          }
+        });
+
+        console.log("Evento 'view_cart' enviado con valor y moneda:", value, currency);
       }
 
-      // Click en el botón eliminar item del carrito (remove-btn)
+      // Evento: Remove from cart
       if (e.target.closest(".remove-btn")) {
-        console.log("Click detectado en botón eliminar (.remove-btn) o hijo:", e.target);
+        console.log("Click detectado en botón eliminar (.remove-btn):", e.target);
+
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: "remove_from_cart" });
-        console.log("Evento 'remove_from_cart' enviado desde delegación");
+        window.dataLayer.push({
+          event: "remove_from_cart"
+          // Podrías añadir item info si lo necesitas
+        });
+
+        console.log("Evento 'remove_from_cart' enviado");
       }
     });
   }
@@ -57,44 +79,44 @@ class App {
       const styles = document.createElement("style");
       styles.id = "mobileStyles";
       styles.textContent = `
-                .nav__toggle {
-                    display: none;
-                    font-size: 1.25rem;
-                    cursor: pointer;
-                    color: var(--text-color);
-                    transition: .3s;
-                }
+        .nav__toggle {
+          display: none;
+          font-size: 1.25rem;
+          cursor: pointer;
+          color: var(--text-color);
+          transition: .3s;
+        }
 
-                @media screen and (max-width: 768px) {
-                    .nav__toggle {
-                        display: block;
-                    }
+        @media screen and (max-width: 768px) {
+          .nav__toggle {
+            display: block;
+          }
 
-                    .nav__menu {
-                        position: fixed;
-                        top: 4rem;
-                        left: -100%;
-                        width: 80%;
-                        height: 100vh;
-                        padding: 2rem;
-                        background-color: var(--bg-color);
-                        box-shadow: 2px 0 4px rgba(0,0,0,.1);
-                        transition: .4s;
-                    }
+          .nav__menu {
+            position: fixed;
+            top: 4rem;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            padding: 2rem;
+            background-color: var(--bg-color);
+            box-shadow: 2px 0 4px rgba(0,0,0,.1);
+            transition: .4s;
+          }
 
-                    .nav__menu.show {
-                        left: 0;
-                    }
+          .nav__menu.show {
+            left: 0;
+          }
 
-                    .nav__list {
-                        flex-direction: column;
-                    }
+          .nav__list {
+            flex-direction: column;
+          }
 
-                    .nav__item {
-                        margin: 1.5rem 0;
-                    }
-                }
-            `;
+          .nav__item {
+            margin: 1.5rem 0;
+          }
+        }
+      `;
       document.head.appendChild(styles);
     }
   }
