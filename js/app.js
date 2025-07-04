@@ -24,7 +24,14 @@ class App {
 
         const value = cartService.getTotal();
         const currency = "EUR";
-        const items = cartService.getItems();
+        const items = cartService.getItems().map((item) => ({
+          item_id: item.id,
+          item_name: item.name,
+          item_brand: item.brand || "Desconocido",
+          item_category: item.category || "Sin categoría",
+          price: item.price,
+          quantity: item.quantity,
+        }));
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
@@ -32,8 +39,8 @@ class App {
           ecommerce: {
             value,
             currency,
-            items
-          }
+            items,
+          },
         });
 
         console.log("Evento 'view_cart' enviado:", { value, currency, items });
@@ -41,7 +48,10 @@ class App {
 
       // ✅ Evento: Remove from cart (solo primer ítem)
       if (e.target.closest(".remove-btn")) {
-        console.log("Click detectado en botón eliminar (.remove-btn):", e.target);
+        console.log(
+          "Click detectado en botón eliminar (.remove-btn):",
+          e.target
+        );
 
         const cartItems = cartService.getItems();
 
@@ -49,17 +59,26 @@ class App {
 
         const item = cartItems[0]; // ← Cogemos el primer ítem
 
+        const removedItem = {
+          item_id: item.id,
+          item_name: item.name,
+          item_brand: item.brand || "Desconocido",
+          item_category: item.category || "Sin categoría",
+          price: item.price,
+          quantity: item.quantity,
+        };
+
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "remove_from_cart",
           ecommerce: {
             currency: "EUR",
             value: item.price * item.quantity,
-            items: [item]
-          }
+            items: [removedItem],
+          },
         });
 
-        console.log("Evento 'remove_from_cart' enviado:", item);
+        console.log("Evento 'remove_from_cart' enviado:", removedItem);
       }
     });
   }
