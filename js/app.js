@@ -1,6 +1,6 @@
 import { cartUI } from "./ui/cartUI.js";
 import { productsUI } from "./ui/productsUI.js";
-import { cartService } from "./services/cart.js"; // ✅ importamos cartService
+import { cartService } from "./services/cart.js"; // ✅ Importamos cartService
 
 class App {
   constructor() {
@@ -18,38 +18,48 @@ class App {
 
     // Delegación para clicks
     document.addEventListener("click", (e) => {
-      // Evento: View Cart
+      // ✅ Evento: View Cart
       if (e.target.closest(".nav__cart")) {
         console.log("Click detectado en .nav__cart o hijo:", e.target);
 
-        // ✅ Obtenemos valor total y moneda
         const value = cartService.getTotal();
-        const currency = "EUR"; // O usa cartService.getCurrency() si lo tienes definido
+        const currency = "EUR";
+        const items = cartService.getItems();
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "view_cart",
           ecommerce: {
-            value: value,
-            currency: currency,
-            items: cartService.getItems()
+            value,
+            currency,
+            items
           }
         });
 
-        console.log("Evento 'view_cart' enviado con valor y moneda:", value, currency);
+        console.log("Evento 'view_cart' enviado:", { value, currency, items });
       }
 
-      // Evento: Remove from cart
+      // ✅ Evento: Remove from cart (solo primer ítem)
       if (e.target.closest(".remove-btn")) {
         console.log("Click detectado en botón eliminar (.remove-btn):", e.target);
 
+        const cartItems = cartService.getItems();
+
+        if (cartItems.length === 0) return;
+
+        const item = cartItems[0]; // ← Cogemos el primer ítem
+
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: "remove_from_cart"
-          // Podrías añadir item info si lo necesitas
+          event: "remove_from_cart",
+          ecommerce: {
+            currency: "EUR",
+            value: item.price * item.quantity,
+            items: [item]
+          }
         });
 
-        console.log("Evento 'remove_from_cart' enviado");
+        console.log("Evento 'remove_from_cart' enviado:", item);
       }
     });
   }
